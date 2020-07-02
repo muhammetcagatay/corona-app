@@ -1,13 +1,16 @@
 import 'package:coronavirus/screens/CountryDetail.dart';
 import 'package:coronavirus/screens/CountryList.dart';
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
+
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
   List<Widget> pages = [
@@ -27,8 +30,8 @@ class _MyAppState extends State<MyApp> {
       title: 'CoronaApp',
       home: Scaffold(
         body: Center(
-        child: pages.elementAt(_selectedIndex),
-      ),
+          child: pages.elementAt(_selectedIndex),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -47,7 +50,10 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Center(
-            child: Text("CoronaApp",style: TextStyle(color: Colors.black),),
+            child: Text(
+              "CoronaApp",
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         ),
       ),
