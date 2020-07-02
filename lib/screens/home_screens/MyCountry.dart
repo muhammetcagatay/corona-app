@@ -2,12 +2,16 @@ import 'package:coronavirus/models/Data.dart';
 import 'package:coronavirus/services/DataService.dart';
 import 'package:flutter/material.dart';
 
-class Global1 extends StatefulWidget {
+class MyCountry extends StatefulWidget {
+  int index;
+  MyCountry(this.index);
   @override
-  _Global1State createState() => _Global1State();
+  _MyCountryState createState() => _MyCountryState(index);
 }
 
-class _Global1State extends State<Global1> {
+class _MyCountryState extends State<MyCountry> {
+  int index ;
+  _MyCountryState(this.index);
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,20 +23,6 @@ class _Global1State extends State<Global1> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height / 18,
-                      color: Colors.purple[300],
-                      width: MediaQuery.of(context).size.width / 2,
-                      child: Center(
-                        child: Text(
-                          snapshot.data.date.toString(),
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -52,7 +42,8 @@ class _Global1State extends State<Global1> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
-                                  snapshot.data.global.newConfirmed.toString(),
+                                  snapshot.data.countries[index].newConfirmed
+                                          .toString() ,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -79,7 +70,8 @@ class _Global1State extends State<Global1> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
-                                  snapshot.data.global.totalConfirmed.toString(),
+                                  snapshot.data.countries[index].totalConfirmed
+                                      .toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -111,7 +103,8 @@ class _Global1State extends State<Global1> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
-                                  snapshot.data.global.newDeaths.toString(),
+                                  snapshot.data.countries[index].newDeaths
+                                      .toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -138,7 +131,8 @@ class _Global1State extends State<Global1> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
-                                  snapshot.data.global.totalDeaths.toString(),
+                                  snapshot.data.countries[index].totalDeaths
+                                      .toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -170,7 +164,8 @@ class _Global1State extends State<Global1> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
-                                  snapshot.data.global.newRecovered.toString(),
+                                  snapshot.data.countries[index].newRecovered
+                                      .toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -197,7 +192,8 @@ class _Global1State extends State<Global1> {
                                       color: Colors.white, fontSize: 16),
                                 ),
                                 Text(
-                                  snapshot.data.global.totalRecovered.toString(),
+                                  snapshot.data.countries[index].totalRecovered
+                                      .toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
@@ -221,5 +217,52 @@ class _Global1State extends State<Global1> {
         ),
       ),
     );
+  }
+
+  String getDay(String day) {
+    if (day[0] == "0") {
+      return day[1];
+    } else {
+      return day;
+    }
+  }
+
+  String getMonth(String month) {
+    if (month == "01") {
+      return "Ocak";
+    }
+    if (month == "02") {
+      return "Şubat";
+    }
+    if (month == "03") {
+      return "Mart";
+    }
+    if (month == "04") {
+      return "Nisan";
+    }
+    if (month == "05") {
+      return "Mayıs";
+    }
+    if (month == "06") {
+      return "Haziran";
+    }
+    if (month == "07") {
+      return "Temmuz";
+    }
+    if (month == "08") {
+      return "Ağustos";
+    }
+    if (month == "09") {
+      return "Eylül";
+    }
+    if (month == "10") {
+      return "Ekim";
+    }
+    if (month == "11") {
+      return "Kasım";
+    }
+    if (month == "12") {
+      return "Aralık";
+    }
   }
 }

@@ -1,5 +1,5 @@
-import 'package:coronavirus/screens/CountryDetail.dart';
-import 'package:coronavirus/screens/CountryList.dart';
+import 'package:coronavirus/screens/Home.dart';
+import 'package:coronavirus/screens/CountrySelect.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +14,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
   List<Widget> pages = [
-    CountryDetail(),
-    CountryList(),
+    Home(),
+    CountrySelect(),
   ];
   void _onItemTapped(int index) {
     setState(() {

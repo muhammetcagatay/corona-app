@@ -1,17 +1,17 @@
 import 'package:coronavirus/models/Data.dart';
-import 'package:coronavirus/screens/Global.dart';
-import 'package:coronavirus/screens/MyCountry.dart';
+import 'package:coronavirus/screens/home_screens/Global.dart';
+import 'package:coronavirus/screens/home_screens/MyCountry.dart';
 import 'package:coronavirus/services/DataService.dart';
 import 'package:flutter/material.dart';
 
-class CountryDetail extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _CountryDetailState createState() => _CountryDetailState();
+  _HomeState createState() => _HomeState();
 }
 
-class _CountryDetailState extends State<CountryDetail> {
+class _HomeState extends State<Home> {
   List<Widget> sayfalar = [
-    MyCountry(0),
+    MyCountry(172),
     Global1(),
   ];
   int index = 0;
@@ -28,17 +28,44 @@ class _CountryDetailState extends State<CountryDetail> {
           return Expanded(
             child: Container(
               width: double.infinity,
-              color: Colors.blue[800],
+              color: Colors.white,
               child: Column(
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 40,
                   ),
+                   ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height / 18,
+                      color: Colors.purple[300],
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: Center(
+                        child: Text(
+                           getDay(snapshot.data.date
+                                  .toString()
+                                  .substring(8, 10)) +
+                              " " +
+                              getMonth(snapshot.data.date
+                                  .toString()
+                                  .substring(5, 7)) +
+                              " " +
+                              snapshot.data.date.toString().substring(0, 4),
+                          style: TextStyle(color: Colors.white, fontSize: 17,fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                   SizedBox(
+                    height: MediaQuery.of(context).size.height / 40,
+                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
-                      color: Colors.white38,
-                      width: MediaQuery.of(context).size.width * 8 / 9,
+                      color: Colors.black26,
+                       height:
+                                      MediaQuery.of(context).size.height / 16,
+                      width: MediaQuery.of(context).size.width * 72 / 81,
                       child: Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -56,20 +83,20 @@ class _CountryDetailState extends State<CountryDetail> {
                                 child: Container(
                                   child: Center(
                                     child: Text(
-                                      "MyCountry",
+                                      "Türkiye",
                                       style: TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold,
                                           color: myCountry
                                               ? Colors.black
-                                              : Colors.white),
+                                              : Colors.blueGrey[700]),
                                     ),
                                   ),
                                   width:
-                                      MediaQuery.of(context).size.width * 4 / 9,
+                                      MediaQuery.of(context).size.width * 36 / 83,
                                   height:
-                                      MediaQuery.of(context).size.height / 18,
-                                  color: myCountry ? Colors.white : null,
+                                      MediaQuery.of(context).size.height / 20,
+                                  color: myCountry ? Colors.white70 : null,
                                 ),
                               ),
                             ),
@@ -90,16 +117,16 @@ class _CountryDetailState extends State<CountryDetail> {
                                       style: TextStyle(
                                           color: global
                                               ? Colors.black
-                                              : Colors.white,
+                                              :  Colors.blueGrey[700],
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                   width:
-                                      MediaQuery.of(context).size.width * 4 / 9,
+                                      MediaQuery.of(context).size.width * 36 / 83,
                                   height:
-                                      MediaQuery.of(context).size.height / 18,
-                                  color: global ? Colors.white : null,
+                                      MediaQuery.of(context).size.height / 20,
+                                  color: global ? Colors.white70 : null,
                                 ),
                               ),
                             ),
@@ -124,4 +151,53 @@ class _CountryDetailState extends State<CountryDetail> {
       },
     );
   }
+   String getDay(String day) {
+    if (day[0] == "0") {
+      return day[1];
+    } else {
+      return day;
+    }
+  }
+
+  String getMonth(String month) {
+    if (month == "01") {
+      return "Ocak";
+    }
+    if (month == "02") {
+      return "Şubat";
+    }
+    if (month == "03") {
+      return "Mart";
+    }
+    if (month == "04") {
+      return "Nisan";
+    }
+    if (month == "05") {
+      return "Mayıs";
+    }
+    if (month == "06") {
+      return "Haziran";
+    }
+
+    if (month == "07") {
+      return "Temmuz";
+    }
+    if (month == "08") {
+      return "Ağustos";
+    }
+
+    if (month == "09") {
+      return "Eylül";
+    }
+    if (month == "10") {
+      return "Ekim";
+    }
+    if (month == "11") {
+      return "Kasım";
+    }
+    if (month == "12") {
+      return "Aralık";
+    }
+  }
+
 }
