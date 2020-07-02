@@ -1,7 +1,7 @@
+
 import 'package:coronavirus/models/Data.dart';
 import 'package:coronavirus/services/DataService.dart';
 import 'package:flutter/material.dart';
-
 class Global1 extends StatefulWidget {
   @override
   _Global1State createState() => _Global1State();
