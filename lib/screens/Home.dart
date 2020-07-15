@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
                       height: MediaQuery.of(context).size.height / 18,
-                      color: Colors.purple[300],
+                      
                       width: MediaQuery.of(context).size.width / 2,
                       child: Center(
                         child: Text(
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                                   .substring(5, 7)) +
                               " " +
                               snapshot.data.date.toString().substring(0, 4),
-                          style: TextStyle(color: Colors.white, fontSize: 17,fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black, fontSize: 17,fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
