@@ -1,5 +1,5 @@
 import 'package:coronavirus/screens/Home.dart';
-import 'package:coronavirus/screens/CountrySelect.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,47 +12,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
-  List<Widget> pages = [
-    Home(),
-    CountrySelect(),
-  ];
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CoronaApp',
-      home: Scaffold(
-        body: Center(
-          child: pages.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('AnaSayfa'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              title: Text('Ülke Değiştir'),
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
-          onTap: _onItemTapped,
-        ),
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Center(
-            child: Text(
-              "CoronaApp",
-              style: TextStyle(color: Colors.black),
+      home: SafeArea(
+        child: Scaffold(
+          body: Center(
+ 
+            child: Container(
+              constraints: BoxConstraints.expand(),
+              decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("https://images.unsplash.com/photo-1577971828613-9872f39c0825?ixlib=rb-1.2.1&w=1000&q=80"),
+              fit: BoxFit.cover)
+              ),
+              child: Center(child: Home())
+               )
+              ),
+          appBar: AppBar(
+            backgroundColor: Colors.red,
+            title: Center(
+              child: Text(
+                "CoronaApp",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
         ),

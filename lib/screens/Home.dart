@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
           return Expanded(
             child: Container(
               width: double.infinity,
-              color: Colors.white,
+              
               child: Column(
                 children: [
                   SizedBox(
@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
                       height: MediaQuery.of(context).size.height / 18,
-                      
+                      color: Colors.white60,
                       width: MediaQuery.of(context).size.width / 2,
                       child: Center(
                         child: Text(
