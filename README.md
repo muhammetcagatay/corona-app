@@ -1,1 +1,1 @@
-![GitHub Logo](images\coronaapp1.PNG)
+![](images\coronaapp1.PNG)
