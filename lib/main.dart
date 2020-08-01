@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
               constraints: BoxConstraints.expand(),
               decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage("https://images.unsplash.com/photo-1577971828613-9872f39c0825?ixlib=rb-1.2.1&w=1000&q=80"),
+                image: NetworkImage("images/wallpaper.jpg"),
               fit: BoxFit.cover)
               ),
               child: Center(child: Home())
