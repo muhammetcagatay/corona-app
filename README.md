@@ -1,5 +1,5 @@
-Turkey:
-![](/images/coronaapp1.PNG)
 
-Global:
-![](/images/coronaapp2.PNG)
+![TURKEY](/images/coronaapp1.PNG)
+
+
+![GLOBAL](/images/coronaapp2.PNG)
