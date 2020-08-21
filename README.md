@@ -1,5 +1,5 @@
 
-Coronavirus COVID-19 API:
+Coronavirus COVID-19 API: https://api.covid19api.com/summary
 
 
 Screenshots:
